@@ -1,0 +1,114 @@
+*{
+ 	font-family: "ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
+ }
+ 
+h1.topcharacter{
+	color: #000;
+	font-size: 36px;
+	font-weight: bold;
+}
+
+a.back_Home{
+	text-align:left;
+}
+
+p.NewThread{
+	text-align: right;
+	font-size: 20px;
+}
+
+section.genre{
+	border: solid 1px #ccc;
+	border-radius:10px;
+	margin: 30px 0 30px 180px; 
+	padding: 40px;
+	width: 70%;
+	background-color: #d4e1f5;
+}
+
+section.genre p{
+	font-size: 30px;
+	text-align: center;
+}
+
+section.keijiban{
+	margin-bottom: 30px;
+	width: 70%;
+	margin: 30px 0 30px 180px;
+}
+
+section.keijiban p{
+	word-spacing: 40px;
+	letter-spacing: 10px;
+}	
+	
+.content_zone{
+	padding: 10px 40px 80px 40px;
+	border: solid 1px #000;
+	border-radius:10px;
+	margin-bottom: 30px;
+	width: 70%;
+	margin: 30px 0 30px 180px;
+	background-color: #ccc;
+}
+
+p.comment_zone_p{
+	font-weight: bold;
+}
+
+.comment_content{
+	width: 70%;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	margin-left:100px;
+	border: solid 1px #fff;
+	border-radius:10px;
+	background-color: #fff;
+}
+
+section.comment{
+	width: 70%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-left: 100px;
+	border: solid 1px #fff;
+	border-radius:10px;
+	background-color: #fff2cc;
+	padding-top: 10px;
+	padding-bottom:40px;
+}
+section.comment p{
+	margin-right: 5px;
+	text-align: center;
+	font-size:20px;
+}
+
+.comment_post{
+	width: 70%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-left: 100px;
+	border: solid 1px #ccc;
+	border-radius:10px;
+	background-color: #f8cecc;
+	padding-top: 20px;
+	padding-left:10px;
+	padding-right: 10px;
+}
+
+button.comment_post{
+	text-align: left;
+}
+
+
+.new_tread_zone{
+	padding: 10px 40px 50px 40px;
+	border: solid 1px #ccc;
+	border-radius:10px;
+	margin-bottom: 30px;
+	width: 70%;
+	margin: 30px 0 30px 180px;
+	background-color: #74c14a;
+	padding-top: 20px;
+	padding-left:10px;
+}
