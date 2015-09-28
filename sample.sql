@@ -30,7 +30,7 @@ address VARCHAR(100),
 unique_id INT ,
 post_time DATETIME,
 content VARCHAR(1000),
-comment_number INT ,
+comment_number INT,
 thread_id INT
 );
 

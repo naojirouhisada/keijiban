@@ -1,5 +1,11 @@
 RewriteEngine on
 
 RewriteBase /
-RewriteRule ^keijiban/(.+?)/(.*)$ /keijiban_detail.php?url=$2 [QSA,L]
-RewriteRule ^keijiban/(.*)$ /keijiban.php?url=$1 [QSA,L]
+RewriteCond %{REQUEST_URI} !/?js/?
+RewriteRule ^keijiban/([^/]*)/post$ /keijiban_detail_post.php?url=$1 [QSA,L]
+RewriteCond %{REQUEST_URI} !/?js/?
+RewriteRule ^keijiban/(.+?)/(.+?)/post$ /thread_comment_post.php?url=$2 [QSA,L]
+RewriteCond %{REQUEST_URI} !/?js/?
+RewriteRule ^keijiban/(.+?)/(.*)$ /thread_comment.php?url=$2 [QSA,L]
+RewriteCond %{REQUEST_URI} !/?js/?
+RewriteRule ^keijiban/(.*)$ /keijiban_detail.php?url=$1 [QSA,L]

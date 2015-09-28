@@ -1,4 +1,12 @@
-<?php  $_GET['url']; ?>
+<?php
+require_once "db.php";
+//$data = db_select('select url_name,up_genre.name as up_genre_name , under_genre.name as under_genre_name from under_genre inner join up_genre on under_genre.up_genre_id = up_genre.id order by up_genre.order_number ,under_genre.order_number');
+
+$UpGenreData = db_select('SELECT * FROM up_genre');
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -8,153 +16,102 @@
         <meta name="discription" content="掲示板です。ここでは色々なスレッドを自由に開設できますので、楽しんでこの掲示板を利用してください。">
 		<meta name="keywords" content="掲示板">
         <title>掲示板</title>
-         <link rel="stylesheet" href="../keijiban.css" />
+         <link rel="stylesheet" href="index.css" />
         <!-- BootstrapのCSS読み込み -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
         <!-- jQuery読み込み -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- BootstrapのJS読み込み -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </head>
 <body>
-	<div id="page">
+<script src="db.php"></script>
 		<header>
 			<h1 class="topcharacter">掲示板</h1>
-				
-			</header>
-				
-			<a class="back_Home" href="../index.php">HOME</a>
-			<p class="NewThread"><a href="#new_tread_zone">New Thread!!</a></p>
-			<div id="pageBody">
-				<section class="genre">
-					<p>下位ジャンル名</p>
-				</section>
-				
-				<section class="keijiban">
-					<div class="panel panel-success">
+			
+		</header>
+		<p class="maincharacter">掲示板 </p>
+		<div id="pageBody">
+			<section class="greet">
+				<p >掲示板へそうこそ！！</p>
+				<p >ここでは様々なスレッドを自由に作成できます。</p>
+				<p >また、<br />
+				他のスレッドに対してコメントをすることも可能です。</p>
+				<p >ぜひ楽しんで使ってください。</p>
+			</section>
+	
+		
+
+			<footer>
+				<?php foreach($UpGenreData as $UpGenreRow): ?>
+			    <section class="News">
+					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h2 class="panel-title">掲示板一覧</h2>
+							<h2 class="panel-title"><?php echo $UpGenreRow['name'];?></h2>
 						</div>
 						<div class="panel-body">
-							<p>
-								スレッド1()
-								スレッド1()
-								スレッド3()
-								スレッド4()
-							</p>
-							<p>
-								スレッド5()
-								スレッド6()
-								スレッド7()
-								スレッド8()
-							</p>
-							<p>
-								スレッド9()
-								スレッド10()
-								スレッド11()
-								スレッド12()
-							</p>
-							<p>
-								スレッド13()
-								スレッド14()
-								スレッド15()
-								スレッド16()
-							</p>
-							<nav>
-								<ul class="pagination">
-									<li>
-										<a href="#" aria-label="前のページへ">
-												<span aria-hidden="true">&lt;&lt;</span>
-										</a>
-									</li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li>
-										<a href="#" aria-label="次のページへ">
-											<span aria-hidden="true">&gt;&gt;</span>
-										</a>
-									</li>
-								</ul>
-							</nav>
+							<?php foreach(db_select('SELECT * FROM under_genre where up_genre_id = ' . $UpGenreRow['id']) as $UnderGenreGenreRow): ?>
+							<a href="keijiban/<?php  echo $UnderGenreGenreRow['url_name'];  ?>"><h3><?php  echo $UnderGenreGenreRow['name'];  ?></h3></a>
+							<?php endforeach; ?>
+						</div>	
+					</div>
+				</section>    
+				<?php endforeach; ?>
+
+				
+			    <?php /* 
+				<section class="Learning">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+<!--php構文　-->				<?php foreach($data as $row); ?> 
+							<h2 class="panel-title">
+								<?php echo $data[0]['up_genre_name']; ?>
+							</h2>
+						</div>
+						<div class="panel-body">
+							<h3><?php echo $data[0]['under_genre_name']; ?></h3>
+							<ul>
+								<li><a href="keijiban/tetugaku.html">哲学</a></li>
+							</ul>
+							<h3> <?php echo $data[1]['under_genre_name']; ?></h3>
+							<ul>
+								<li>日本史</li>
+							</ul>
 							
+							<h3><?php echo $data[2]['under_genre_name']; ?></h3>
+							<ul>
+								<li>世界史</li>
+							</ul>	
 						</div>	
 					</div>
 				</section>
-				<div class="content_zone">
-					<p class="comment_zone_p">タイトル名(コメント数) 最終更新日時：　年　月　日　時間　分</p>
-				
-					<div class="comment_content">
-						<p >番号　コメント者名　投稿日時：　年/月/日　ユニークID</p>
-						<section class="comment">
-							<p>コンテンツ名</p>
-						</section>
-					</div><!-- comment_content-->
-					
-					<div class="comment_post">
-						<form class="form-horizontal">
-							<button type="submit" class="btn btn-default">POST!!</button>
-							
-							<div class="form-group">
-								<label class="col-sm-2 control-label" for="PostName">名前:</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="PostName">
-								</div><!--col-sm-10-->
-							</div><!--form-group-->
-							
-							<div class="form-group">
-								<label class="col-sm-2 control-label" for="PostEmail">EMAIL:</label>
-								<div class="col-sm-10">
-									<input type="email" class="form-control" id="PostEmail">
-								</div><!--col-sm-10-->	
-							</div><!--form-group-->
-						
-							<div class="form-group">
-								<label class="col-sm-2 control-label" for="PostTextarea">本文:</label>
-								<div class="col-sm-10">
-									<textarea class="form-control" id="PostTextarea"> </textarea>
-								</div><!-- col-sm-10-->	
-							</div><!--form-group-->
-						</form>
-					</div><!--comment_post -->
-					
-				</div><!-- comment_zone-->
-				
-				<div id="new_tread_zone">
-							
-				<form class="form-horizontal">
-					<button type="submit" class="btn btn-default">New Thread!!</button>
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="InputName">名前:</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="InputName">
-							</div><!--col-sm-10-->
-						</div><!--form-group-->
-						
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="InputEmail">EMAIL:</label>
-							<div class="col-sm-10">
-								<input type="email" class="form-control" id="InputEmail">
-							</div><!-- col-sm-10 -->
-						</div><!--form-group-->
-						
-						<div class="form-group">
-							<label class="col-sm-2 control-label for="InputTextarea">本文:</label>
-							<div class="col-sm-10">
-								<textarea class="form-control" id="InputTextarea"> </textarea>
-							</div><!-- col-sm-10-->
-						</div><!-- form-group-->
-				</form>
-				
-			</div><!-- new_tread_zone -->
 			
-		</div><!-- pageBody-->
-	</div><!-- page-->
+				<section class="News">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title"><?php echo $data[3]['up_genre_name'];?></h2>
+						</div>
+						<div class="panel-body">
+							<h3><?php echo $data[3]['under_genre_name']; ?></h3>
+							<ul>
+								<li>科学ニュース</li>
+							</ul>
+							<h3><?php echo $data[4]['under_genre_name']; ?></h3>
+							<ul>
+								<li>哲学ニュース</li>
+							</ul>
+						</div>	
+					</div>
+				</section>
+				<?php endforach; ?>	<!-- php構文の終了 -->
+				 
+				 */ ?>
+			</footer>
+		</div>
+	
+	</div>
+
 	
 </body>
-</html>
 
-			
-			
-	
+</html>

@@ -19,13 +19,14 @@ function db_select($query){
 
 function db_insert($query){
     global $pdo;
-    $stmt = $pdo->prepare($sql);
+    $stmt = $pdo->prepare($query);
     $flag = $stmt->execute();
 }
 
+
 function db_update($query){
     global $pdo;
-    $stmt = $pdo->prepare($sql);
+    $stmt = $pdo->prepare($query);
     $flag = $stmt->execute();
 }
 ?>

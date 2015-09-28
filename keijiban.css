@@ -10,10 +10,15 @@ h1.topcharacter{
 
 a.back_Home{
 	text-align:left;
+	font-size: 20px;
 }
 
 p.NewThread{
 	text-align: right;
+	font-size: 20px;
+}
+a.back_Keijiban{
+	margin-left:15px;
 	font-size: 20px;
 }
 
@@ -57,13 +62,22 @@ p.comment_zone_p{
 }
 
 .comment_content{
-	width: 70%;
+	width: 603.594;
+	height:164px;
 	margin-top: 20px;
 	margin-bottom: 30px;
 	margin-left:100px;
 	border: solid 1px #fff;
 	border-radius:10px;
 	background-color: #fff;
+}
+
+.comment_content p{
+	width:300px;
+	height:20px;
+	margin-right:0;
+	text-align:left;
+	font-size:14px;
 }
 
 section.comment{
@@ -79,8 +93,8 @@ section.comment{
 }
 section.comment p{
 	margin-right: 5px;
-	text-align: center;
-	font-size:20px;
+	text-align: left;
+	
 }
 
 .comment_post{
@@ -96,12 +110,10 @@ section.comment p{
 	padding-right: 10px;
 }
 
-button.comment_post{
-	text-align: left;
-}
 
 
-.new_tread_zone{
+
+#new_tread_zone{
 	padding: 10px 40px 50px 40px;
 	border: solid 1px #ccc;
 	border-radius:10px;
@@ -111,4 +123,18 @@ button.comment_post{
 	background-color: #74c14a;
 	padding-top: 20px;
 	padding-left:10px;
+}
+
+a.popOpen {
+
+	width:0px;
+}
+
+.box {
+	width:500px;
+	height:200px;'
+}
+
+.comment_content.pop{
+	width:400px;
 }
