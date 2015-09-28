@@ -63,32 +63,32 @@
 							?>
 							
 							
-							<form class='form-horizontal' action=<?php echo $_SERVER['REQUEST_URI'] . '/post'; ?> method='post'>
-							<button type='submit' class='btn btn-default'>POST!!</button>
-							
-							<div class='form-group'>
-								<label class='col-sm-2 control-label' for='PostName'>名前:</label>
-								<div class='col-sm-10'>
-									<input type='text' class='form-control' id='PostName' name='name' value=''>
-								</div><!--col-sm-10-->
-							</div><!--form-group-->
-							
-							<div class='form-group'>
-								<label class='col-sm-2 control-label' for='PostEmail'>EMAIL:</label>
-								<div class='col-sm-10'>
-									<input type='email' class='form-control' id='PostEmail' name='address' value=''>
-								</div><!--col-sm-10-->	
-							</div><!--form-group-->
-						
-							<div class='form-group'>
-								<label class='col-sm-2 control-label' for='PostTextarea'>本文:</label>
-								<div class='col-sm-10'>
-									<textarea class='form-control' id='PostTextarea' name='content' value=''> </textarea>
-								</div><!-- col-sm-10-->	
-							</div><!--form-group-->
-							<input type='hidden' name='thread_id' value=''>
-							<input type='hidden' name='post_time' value=''>
-							<input type='hidden' name='unique_id' value=''>
-							<input type='hidden' name='comment_number' value=''>
-							
-						</form>
+				<form class='form-horizontal' action=<?php echo $_SERVER['REQUEST_URI'] . '/post'; ?> method='post'>
+				<button type='submit' class='btn btn-default'>POST!!</button>
+				
+				<div class='form-group'>
+					<label class='col-sm-2 control-label' for='PostName'>名前:</label>
+					<div class='col-sm-10'>
+						<input type='text' class='form-control' id='PostName' name='name' value=''>
+					</div><!--col-sm-10-->
+				</div><!--form-group-->
+				
+				<div class='form-group'>
+					<label class='col-sm-2 control-label' for='PostEmail'>EMAIL:</label>
+					<div class='col-sm-10'>
+						<input type='email' class='form-control' id='PostEmail' name='address' value=''>
+					</div><!--col-sm-10-->	
+				</div><!--form-group-->
+			
+				<div class='form-group'>
+					<label class='col-sm-2 control-label' for='PostTextarea'>本文:</label>
+					<div class='col-sm-10'>
+						<textarea class='form-control' id='PostTextarea' name='content' value=''> </textarea>
+					</div><!-- col-sm-10-->	
+				</div><!--form-group-->
+				<input type='hidden' name='thread_id' value=''>
+				<input type='hidden' name='post_time' value=''>
+				<input type='hidden' name='unique_id' value=''>
+				<input type='hidden' name='comment_number' value=''>
+				
+			</form>
